@@ -1,0 +1,14 @@
+git config --global user.name llucasfranca
+git config --global user.email lucasgt@hotmail.com
+
+criar o nome do projeto:
+ng new lucasflix
+
+executar: 
+ng serve -o
+
+criar um componente
+ng g c pages/home
+
+criar um servico 
+ng g s services/movieApi
