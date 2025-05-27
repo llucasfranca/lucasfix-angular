@@ -36,3 +36,13 @@
         </div>
     </div>
 </div>
+<div class="container my-5">
+    <div class="row mb-5">
+        <h4 class="text-white">Series em Destaques</h4>
+        <div class="rowposter mt-1" #trendingSeries autoScroll>
+            <a href="#" *ngFor="let m of trendingSerieResults">
+                <img src="https://image.tmdb.org/t/p/w500/{{ m.poster_path }}" alt="Capa da Serie">
+            </a>
+        </div>
+    </div>
+</div>
