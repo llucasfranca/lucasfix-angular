@@ -23,7 +23,7 @@ export class MovieApiService {
     return this.http.get(`${this.baseUrl}/trending/all/week?language=pt-br`, this.options);
   }
 
-  //pFilmes em destaques do dia 
+  //Filmes em destaques do dia 
   trendingMovieApiData(): Observable<any> {
     return this.http.get(`${this.baseUrl}/trending/movie/day?language=pt-br`, this.options);
   }

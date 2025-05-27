@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MovieApiService } from '../../services/movie-api.service';
+import { AutoScrollDirective } from '../../directives/auto-scroll.directive';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, AutoScrollDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

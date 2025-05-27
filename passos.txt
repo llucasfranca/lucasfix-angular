@@ -12,3 +12,6 @@ ng g c pages/home
 
 criar um servico 
 ng g s services/movieApi
+
+criar uma diretiva
+ng g d directives/auto-scroll
