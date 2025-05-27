@@ -1,11 +1,54 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { MovieApiService } from '../../services/movie-api.service';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  constructor(private service: MovieApiService) {};
+
+  bannerResults: any = [];
+  trendingMovieResults: any = [];
+  trendingSeriesResults: any = [];
+  popularActionMovieResults: any = [];
+
+
+  ngOnInit(): void {
+    this.bannerData();
+    this.trendingMovieData();
+    this.trendingSeriesData();
+    this.popularActionMovieData();
+  }
+
+  // Banner
+  bannerData() {
+    this.service.bannerApiData().subscribe((result) => {
+      //console.log(result.results);
+      this.bannerResults = result.results;
+    })
+  }
+
+  trendingMovieData() {
+    this.service.trendingMovieApiData().subscribe((result) => {
+      this.trendingMovieResults = result.results
+    })
+  }
+
+  trendingSeriesData() {
+    this.service.trendingSerieApiData().subscribe((result) => {
+      this.trendingSeriesResults = result.results
+    })
+  }
+
+  popularActionMovieData() {
+    this.service.popularActionMovieApiData().subscribe((result) => {
+      this.popularActionMovieResults = result.results
+    })
+  }
 
 }
