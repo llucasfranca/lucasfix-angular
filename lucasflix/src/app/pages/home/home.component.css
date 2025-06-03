@@ -5,6 +5,7 @@
 #carouselBanner .carousel-item img {
     height: 100vh;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .carousel-inner .carousel-caption {
@@ -44,7 +45,7 @@
 }
 
 .rowposter a {
-    cursor: inherit;
+    cursor: pointer;
 }
 
 .rowposter::-webkit-scrollbar {

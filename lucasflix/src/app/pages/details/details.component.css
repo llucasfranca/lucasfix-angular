@@ -1,0 +1,23 @@
+#detalhes p {
+    font-size: 18px;
+}
+
+.card {
+    border-radius: 30px;
+}
+
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.card-title {
+    padding: 0 5px;
+    display: flex;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+}
