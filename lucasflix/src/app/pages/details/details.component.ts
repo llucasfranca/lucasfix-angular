@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MovieApiService } from '../../services/movie-api.service';
-import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-details',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   standalone: true,
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
@@ -41,9 +41,12 @@ export class DetailsComponent {
     });
 
     this.service.mediaCast(type, id).subscribe((result) => {
-      //console.log(result);
       this.cast = result.cast
+      // console.log(this.cast);
     })
+  }
 
+  getSafeUrl(key: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + key)
   }
 }

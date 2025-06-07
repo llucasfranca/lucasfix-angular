@@ -4,14 +4,18 @@
 
 .card {
     border-radius: 30px;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    cursor: pointer;
 }
 
 .card-img-top {
     height: 300px;
     object-fit: cover;
     width: 100%;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .card-title {

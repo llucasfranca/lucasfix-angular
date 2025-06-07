@@ -53,4 +53,9 @@ export class MovieApiService {
   mediaCast(type: any, value: any): Observable<any> {
     return this.http.get(`${this.baseUrl}/${type}/${value}/credits?language=pt-br`, this.options);
   }
+
+  //Buscar os dados do Ator ou Atriz
+  personDetails(value: any): Observable<any> {
+    return this.http.get(`${this.baseUrl}/person/${value}?language=pt-br`, this.options);
+  } 
 }
