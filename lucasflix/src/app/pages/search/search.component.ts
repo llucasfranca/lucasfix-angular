@@ -57,7 +57,7 @@ export class SearchComponent {
 
     this.service.searchMedia(query, this.currentPage).subscribe(result => {
       this.result = result;
-      this.totalPages = result.total_Pages;
+      this.totalPages = result.total_pages;
       //console.log(result);
 
       if (this.currentPage === 1) {
