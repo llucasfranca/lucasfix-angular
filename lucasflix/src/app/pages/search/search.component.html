@@ -1,20 +1,30 @@
 <div class="container my-5 py-5 px-lg-5 px-3">
-    <form id="pesquisar" class="d-flex position-relative">
-        <input type="text" name="search" placeholder="pesquisar...">
+    <form id="pesquisar" class="d-flex position-relative" (submit)="onSearch()">
+        <input type="text" name="search" placeholder="pesquisar..." [(ngModel)]="searchQuery">
         <button class="position-absolute">
             <i class="bi bi-search"></i>
         </button>
     </form>
 
-    <h5 id="qtdeResultados" class="text-white my-4">
-        Resultados Encontardos (0)
+    <h5 id="qtdeResultados" class="text-white my-4" *ngIf="result">
+        Resultados Encontardos ({{result.total_results}})
     </h5>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
-
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3" *ngIf="result">
+        <div class="col" *ngFor="let r of resultsList">
+            <a routerLink="/details/{{r.media_type}}/{{r.id}}" class="text-decoration-none">
+                <div class="card">
+                    <img alt="{{ r.title ?? r.name }}" class="card-img-top"
+                    [src]="r.poster_path ? 'https://image.tmdb.org/t/p/w500/' + r.poster_path : '/img/no-poster.png'">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{r.title ?? r.name}}</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="currentPage < totalPages">
         <div class="col-12 text-center mt-5">
-            <button class="btn btn-lg px-5 btn-danger text-white rounded-5">
+            <button class="btn btn-lg px-5 btn-danger text-white rounded-5" (click)="loadMore()">
                 Exibir Mais
             </button>
         </div>
